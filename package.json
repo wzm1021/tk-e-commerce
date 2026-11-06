@@ -1,0 +1,20 @@
+{
+  "name": "tanviko-data-client",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.ts test/*.test.mjs",
+    "check": "node --check src/index.ts && node --check src/cli.ts && node --check src/fastmoss/cli.ts && node --check scripts/sync-fastmoss-tools.ts && node --check skills/tiktok-supplier-matching/scripts/prepare_batch.mjs && node --check skills/tiktok-unit-economics/scripts/calculate.mjs",
+    "sourcing:prepare": "node skills/tiktok-supplier-matching/scripts/prepare_batch.mjs",
+    "economics:calculate": "node skills/tiktok-unit-economics/scripts/calculate.mjs",
+    "cli": "node --env-file-if-exists=.env src/cli.ts",
+    "fastmoss": "node --env-file-if-exists=.env src/fastmoss/cli.ts",
+    "fastmoss:sync-tools": "node --env-file-if-exists=.env scripts/sync-fastmoss-tools.ts",
+    "fastmoss:generate-types": "node scripts/generate-fastmoss-input-types.ts"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "license": "MIT"
+}

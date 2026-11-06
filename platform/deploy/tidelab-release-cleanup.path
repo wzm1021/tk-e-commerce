@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch Tidelab release acceptance
+
+[Path]
+PathChanged=/opt/tidelab/release-accepted
+Unit=tidelab-release-cleanup.service
+
+[Install]
+WantedBy=multi-user.target

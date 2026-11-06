@@ -1,0 +1,13 @@
+[Unit]
+Description=Tidelab job network isolation
+After=docker.service
+Requires=docker.service
+Before=tidelab-worker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/tidelab/current/platform/deploy/agent-network.py
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,27 @@
+[Unit]
+Description=Tidelab isolated Codex worker supervisor
+After=network-online.target docker.service tidelab-agent-tunnel.service tidelab-agent-network.service
+Requires=docker.service tidelab-agent-tunnel.service tidelab-agent-network.service
+
+[Service]
+User=root
+WorkingDirectory=/opt/tidelab/current/platform
+EnvironmentFile=/etc/tidelab/worker.env
+ExecStart=/usr/local/bin/node src/worker.mjs
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=120
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/srv/tidelab/jobs /srv/tidelab/logs
+MemoryHigh=300M
+MemoryMax=450M
+TasksMax=128
+UMask=0077
+StandardOutput=append:/srv/tidelab/logs/worker.log
+StandardError=append:/srv/tidelab/logs/worker.log
+
+[Install]
+WantedBy=multi-user.target

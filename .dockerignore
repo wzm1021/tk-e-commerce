@@ -1,0 +1,15 @@
+**/node_modules
+**/.env*
+**/.git
+**/.codex
+**/.agents
+**/data
+**/*.log
+**/__pycache__
+output
+product
+skills/*
+!skills/tiktok-competitor-monitoring
+!skills/tiktok-competitor-monitoring/**
+docs
+schemas

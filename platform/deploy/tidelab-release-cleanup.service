@@ -1,0 +1,11 @@
+[Unit]
+Description=Remove superseded Tidelab releases after acceptance
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /usr/local/lib/tidelab/prune-releases.py --apply
+TimeoutStartSec=900
+UMask=0077
+Nice=10
+IOSchedulingClass=idle

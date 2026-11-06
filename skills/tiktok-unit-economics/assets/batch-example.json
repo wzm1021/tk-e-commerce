@@ -1,0 +1,298 @@
+{
+  "schema_version": 1,
+  "example_notice": "全部虚构，用于比较商家包装与测样方案",
+  "cases": [
+    {
+      "schema_version": 1,
+      "case_id": "DEMO-ONLY-001",
+      "as_of": "2026-09-05",
+      "market": "US",
+      "base_currency": "USD",
+      "currency_decimals": 2,
+      "supply": {
+        "item_id": "demo-item-1",
+        "tk_product_id": "demo-tk-1",
+        "tk_sku_id": null,
+        "offer_id": "demo-offer-1",
+        "sku_id": "demo-sku-1",
+        "match_status": "candidate",
+        "confirmation_source": null
+      },
+      "sales": {
+        "item_revenue": 25,
+        "buyer_shipping_revenue": 0,
+        "units_per_order": 1
+      },
+      "platform_fee": {
+        "rate": 0.06
+      },
+      "fx_rates": [
+        {
+          "currency": "CNY",
+          "rate_to_base": 0.14,
+          "as_of": "2026-09-05",
+          "source": "虚构演示汇率"
+        }
+      ],
+      "costs": [
+        {
+          "category": "procurement",
+          "status": "estimated",
+          "amount": 20,
+          "currency": "CNY",
+          "basis": "per_sale_unit",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "domestic_shipping",
+          "status": "estimated",
+          "amount": 1,
+          "currency": "CNY",
+          "basis": "per_order",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "packaging",
+          "status": "estimated",
+          "amount": 2,
+          "currency": "CNY",
+          "basis": "per_order",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "fulfillment",
+          "status": "not_applicable",
+          "amount": 0,
+          "currency": "USD",
+          "basis": "per_order",
+          "source": "演示场景明确不适用"
+        },
+        {
+          "category": "duties_taxes",
+          "status": "estimated",
+          "amount": 1,
+          "currency": "USD",
+          "basis": "per_order",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "creator_commission",
+          "status": "estimated",
+          "amount": 1,
+          "currency": "USD",
+          "basis": "per_order",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "advertising",
+          "status": "estimated",
+          "amount": 2,
+          "currency": "USD",
+          "basis": "per_order",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "returns_losses",
+          "status": "estimated",
+          "amount": 0.5,
+          "currency": "USD",
+          "basis": "per_order",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "other",
+          "status": "not_applicable",
+          "amount": 0,
+          "currency": "USD",
+          "basis": "per_order",
+          "source": "演示场景明确不适用"
+        }
+      ],
+      "shipping": {
+        "mode": "rate_card",
+        "parcel": {
+          "weight_kg": 0.32,
+          "length_cm": 20,
+          "width_cm": 15,
+          "height_cm": 10,
+          "units_per_parcel": 1,
+          "basis": "supplier",
+          "recorded_at": "2026-09-05",
+          "source": "虚构商家包装数据"
+        },
+        "rate_card": {
+          "name": "虚构演示线路",
+          "currency": "CNY",
+          "destination": "US",
+          "valid_from": "2026-09-01",
+          "valid_until": "2026-09-30",
+          "source": "虚构报价，仅用于检验计算",
+          "weight_mode": "max_actual_volumetric",
+          "volumetric_divisor": 6000,
+          "billing_increment_kg": 0.1,
+          "minimum_billable_kg": 0.1,
+          "max_actual_kg": 2,
+          "max_billable_kg": 2,
+          "max_side_cm": 60,
+          "package_eligibility_confirmed": true,
+          "pricing": {
+            "type": "per_kg",
+            "amount_per_kg": 60
+          },
+          "surcharges": {
+            "fixed_per_parcel": 5,
+            "fuel_rate": 0,
+            "fuel_basis": "base_freight"
+          }
+        }
+      },
+      "example_notice": "全部数值和商品身份均为虚构示例，不是真实报价或汇率"
+    },
+    {
+      "schema_version": 1,
+      "case_id": "DEMO-ONLY-002-MEASURED",
+      "as_of": "2026-09-05",
+      "market": "US",
+      "base_currency": "USD",
+      "currency_decimals": 2,
+      "supply": {
+        "item_id": "demo-item-1",
+        "tk_product_id": "demo-tk-1",
+        "tk_sku_id": null,
+        "offer_id": "demo-offer-1",
+        "sku_id": "demo-sku-1",
+        "match_status": "candidate",
+        "confirmation_source": null
+      },
+      "sales": {
+        "item_revenue": 25,
+        "buyer_shipping_revenue": 0,
+        "units_per_order": 1
+      },
+      "platform_fee": {
+        "rate": 0.06
+      },
+      "fx_rates": [
+        {
+          "currency": "CNY",
+          "rate_to_base": 0.14,
+          "as_of": "2026-09-05",
+          "source": "虚构演示汇率"
+        }
+      ],
+      "costs": [
+        {
+          "category": "procurement",
+          "status": "estimated",
+          "amount": 20,
+          "currency": "CNY",
+          "basis": "per_sale_unit",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "domestic_shipping",
+          "status": "estimated",
+          "amount": 1,
+          "currency": "CNY",
+          "basis": "per_order",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "packaging",
+          "status": "estimated",
+          "amount": 2,
+          "currency": "CNY",
+          "basis": "per_order",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "fulfillment",
+          "status": "not_applicable",
+          "amount": 0,
+          "currency": "USD",
+          "basis": "per_order",
+          "source": "演示场景明确不适用"
+        },
+        {
+          "category": "duties_taxes",
+          "status": "estimated",
+          "amount": 1,
+          "currency": "USD",
+          "basis": "per_order",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "creator_commission",
+          "status": "estimated",
+          "amount": 1,
+          "currency": "USD",
+          "basis": "per_order",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "advertising",
+          "status": "estimated",
+          "amount": 2,
+          "currency": "USD",
+          "basis": "per_order",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "returns_losses",
+          "status": "estimated",
+          "amount": 0.5,
+          "currency": "USD",
+          "basis": "per_order",
+          "source": "虚构演示，非业务数据"
+        },
+        {
+          "category": "other",
+          "status": "not_applicable",
+          "amount": 0,
+          "currency": "USD",
+          "basis": "per_order",
+          "source": "演示场景明确不适用"
+        }
+      ],
+      "shipping": {
+        "mode": "rate_card",
+        "parcel": {
+          "weight_kg": 0.501,
+          "length_cm": 20,
+          "width_cm": 15,
+          "height_cm": 10,
+          "units_per_parcel": 1,
+          "basis": "measured",
+          "recorded_at": "2026-09-05",
+          "source": "虚构测样记录，非真实业务数据"
+        },
+        "rate_card": {
+          "name": "虚构演示线路",
+          "currency": "CNY",
+          "destination": "US",
+          "valid_from": "2026-09-01",
+          "valid_until": "2026-09-30",
+          "source": "虚构报价，仅用于检验计算",
+          "weight_mode": "max_actual_volumetric",
+          "volumetric_divisor": 6000,
+          "billing_increment_kg": 0.1,
+          "minimum_billable_kg": 0.1,
+          "max_actual_kg": 2,
+          "max_billable_kg": 2,
+          "max_side_cm": 60,
+          "package_eligibility_confirmed": true,
+          "pricing": {
+            "type": "per_kg",
+            "amount_per_kg": 60
+          },
+          "surcharges": {
+            "fixed_per_parcel": 5,
+            "fuel_rate": 0,
+            "fuel_basis": "base_freight"
+          }
+        }
+      },
+      "example_notice": "全部数值和商品身份均为虚构示例，不是真实报价或汇率"
+    }
+  ]
+}

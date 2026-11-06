@@ -1,0 +1,14 @@
+SET search_path TO tidelab,public;
+ALTER TABLE jobs ADD CONSTRAINT job_budget_bounds CHECK(model_spent>=0 AND model_inflight>=0 AND data_spent>=0 AND data_inflight>=0 AND model_spent+model_inflight<=model_budget AND data_spent+data_inflight<=data_budget);
+ALTER TABLE skill_releases ADD UNIQUE(workspace_id,skill_id,id);
+ALTER TABLE skill_bindings ADD FOREIGN KEY(workspace_id,skill_id,release_id) REFERENCES skill_releases(workspace_id,skill_id,id);
+ALTER TABLE invocations ADD CHECK(reserved>=0 AND charged>=0 AND procurement>=0);
+CREATE UNIQUE INDEX opportunity_identity ON records(workspace_id,(data->>'product_id')) WHERE kind='opportunity';
+CREATE UNIQUE INDEX historical_import ON records(workspace_id,(data->>'source_sha256')) WHERE kind='report' AND data->>'source_sha256' IS NOT NULL;
+CREATE FUNCTION immutable_record() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'append-only relation'; END $$;
+CREATE TRIGGER ledger_immutable BEFORE UPDATE OR DELETE ON ledger FOR EACH ROW EXECUTE FUNCTION immutable_record();
+CREATE TRIGGER audit_immutable BEFORE UPDATE OR DELETE ON platform_audit FOR EACH ROW EXECUTE FUNCTION immutable_record();
+CREATE TRIGGER tenant_audit_immutable BEFORE UPDATE OR DELETE ON tenant_audit FOR EACH ROW EXECUTE FUNCTION immutable_record();
+CREATE TRIGGER skill_release_immutable BEFORE UPDATE OR DELETE ON skill_releases FOR EACH ROW EXECUTE FUNCTION immutable_record();
+CREATE INDEX dispatch_available ON dispatch(available_at,created_at);
+INSERT INTO schema_versions(version) VALUES('002_invariants');

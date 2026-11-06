@@ -1,0 +1,11 @@
+[Unit]
+Description=Nightly Tidelab artifact snapshot
+
+[Timer]
+OnCalendar=*-*-* 03:30:00 Asia/Shanghai
+RandomizedDelaySec=10min
+Persistent=true
+Unit=tidelab-files-backup.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikTok Shop 带货内容与脚本"
+  short_description: "基于 FastMoss 视频与字幕拆解带货表达，生成原创脚本、拍摄建议和实验方案"
+  default_prompt: "使用 $tiktok-content-playbook 分析指定商品的带货视频，生成原创脚本、拍摄 brief 和单变量实验方案。"

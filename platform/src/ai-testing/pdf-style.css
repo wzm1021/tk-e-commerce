@@ -1,0 +1,219 @@
+@page {
+  size: A4;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  color: #1e3330;
+  background: white;
+}
+body {
+  margin: 0;
+  font:
+    10pt/1.65 "Noto Sans CJK SC",
+    "PingFang SC",
+    "Microsoft YaHei",
+    sans-serif;
+  overflow-wrap: anywhere;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: #174d43;
+  line-height: 1.45;
+  break-after: avoid;
+}
+h1 {
+  font-size: 25pt;
+  margin: 18mm 0 6mm;
+}
+h2 {
+  font-size: 18pt;
+  border-bottom: 2px solid #276f5f;
+  padding-bottom: 4mm;
+  margin: 0 0 7mm;
+}
+h3 {
+  font-size: 13pt;
+  margin: 7mm 0 3mm;
+}
+h4 {
+  font-size: 10.5pt;
+  margin: 5mm 0 2mm;
+}
+p {
+  margin: 2mm 0 4mm;
+  orphans: 3;
+  widows: 3;
+  white-space: pre-wrap;
+}
+ul {
+  padding-left: 5mm;
+  margin: 2mm 0 5mm;
+}
+li {
+  padding-left: 1mm;
+  margin-bottom: 2.5mm;
+  orphans: 2;
+  widows: 2;
+}
+a {
+  color: #176250;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+small {
+  display: block;
+  color: #60746e;
+  font-size: 8.5pt;
+  margin-top: 1mm;
+}
+strong {
+  font-weight: 700;
+}
+.brand {
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #407565;
+}
+.subtitle {
+  font-size: 16pt;
+  margin-bottom: 12mm;
+}
+.notice {
+  background: #eff5f2;
+  border-left: 3px solid #407565;
+  padding: 5mm;
+  margin: 7mm 0;
+  break-inside: avoid;
+}
+.muted {
+  color: #60746e;
+  font-size: 9pt;
+}
+.lead {
+  font-size: 12pt;
+  font-weight: 600;
+}
+nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm 8mm;
+  padding: 6mm 0;
+  border-top: 1px solid #d8e3dd;
+}
+.chapter {
+  break-before: page;
+}
+.arm + .arm,
+.persona + .persona,
+.product + .product {
+  break-before: page;
+}
+.rate {
+  font-size: 30pt;
+  font-weight: 700;
+  color: #236c59;
+  margin-top: 4mm;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 3mm 0 6mm;
+  table-layout: fixed;
+}
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 2.5mm 3mm;
+  border-bottom: 1px solid #dbe5df;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+th {
+  color: #395c51;
+  background: #f2f6f3;
+  font-weight: 600;
+}
+.facts th {
+  width: 29%;
+}
+thead {
+  display: table-header-group;
+}
+tr {
+  break-inside: avoid;
+}
+.segments {
+  font-size: 9pt;
+}
+.segments th:nth-child(2) {
+  width: 10%;
+}
+.segments th:last-child {
+  width: 18%;
+}
+.segment {
+  break-inside: avoid;
+}
+.recommendation {
+  break-inside: avoid;
+}
+.comparison {
+  break-inside: avoid;
+}
+.persona-arm {
+  break-inside: avoid;
+  border-left: 2px solid #dce8e1;
+  padding-left: 4mm;
+  margin-top: 4mm;
+}
+.profile th {
+  width: 17%;
+}
+.profile td {
+  width: 33%;
+}
+.profile th,
+.profile td {
+  padding: 1.8mm 2mm;
+}
+.persona h4 {
+  margin-top: 2.5mm;
+}
+.persona p,
+.persona ul {
+  margin-bottom: 2.5mm;
+}
+.persona li {
+  margin-bottom: 1.5mm;
+}
+.product-url {
+  padding: 3mm 0;
+}
+.product-url strong {
+  display: block;
+}
+figure {
+  margin: 6mm 0 0;
+  break-inside: avoid;
+}
+figure img {
+  display: block;
+  max-width: 100%;
+  max-height: 220mm;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  border: 1px solid #dbe5df;
+}
+figcaption {
+  color: #60746e;
+  text-align: center;
+  font-size: 9pt;
+  margin-top: 2mm;
+}

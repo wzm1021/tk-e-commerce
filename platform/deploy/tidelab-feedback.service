@@ -1,0 +1,30 @@
+[Unit]
+Description=Tidelab customer feedback mail delivery queue
+After=network-online.target tidelab-app.service
+Wants=network-online.target
+
+[Service]
+User=tidelab
+Group=tidelab
+WorkingDirectory=/opt/tidelab/current/platform
+EnvironmentFile=/etc/tidelab/app.env
+Environment=DB_POOL_SIZE=2
+ExecStart=/usr/local/bin/node src/feedback-worker.mjs
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=150
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/srv/tidelab/data /srv/tidelab/logs
+MemoryHigh=100M
+MemoryMax=160M
+TasksMax=48
+LimitNOFILE=1024
+UMask=0077
+StandardOutput=append:/srv/tidelab/logs/feedback.log
+StandardError=append:/srv/tidelab/logs/feedback.log
+
+[Install]
+WantedBy=multi-user.target

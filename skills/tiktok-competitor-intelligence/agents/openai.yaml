@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikTok Shop 竞店增长拆解"
+  short_description: "基于 FastMoss 拆解竞店增长、商品与渠道结构，形成可验证的对标行动"
+  default_prompt: "使用 $tiktok-competitor-intelligence 分析指定 TikTok Shop 竞店的增长，给出证据、局限和可执行的对标测试。"

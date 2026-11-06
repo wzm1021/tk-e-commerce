@@ -1,0 +1,456 @@
+{
+  "version": "2026-08-15",
+  "source": "https://open.sellersprite.com/api",
+  "tools": [
+    {
+      "alias": "competitor_lookup",
+      "label": "查竞品",
+      "group": "product",
+      "runtime_name": "competitor_lookup",
+      "default": true,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "product_research",
+      "label": "选产品",
+      "group": "product",
+      "runtime_name": "product_research",
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "product_node",
+      "label": "查产品类目",
+      "group": "product",
+      "runtime_name": "product_node",
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "observed"
+    },
+    {
+      "alias": "asin_competitors",
+      "label": "查询ASIN竞品数据",
+      "group": "product",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "asin_detail",
+      "label": "ASIN详情",
+      "group": "product",
+      "runtime_name": "asin_detail",
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "observed"
+    },
+    {
+      "alias": "asin_coupon_trend",
+      "label": "ASIN优惠趋势",
+      "group": "product",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "observed"
+    },
+    {
+      "alias": "asin_detail_coupon_trend",
+      "label": "ASIN详情及优惠趋势",
+      "group": "product",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "observed"
+    },
+    {
+      "alias": "asin_sales_trend",
+      "label": "ASIN销量趋势",
+      "group": "product",
+      "runtime_name": "asin_sales_trend",
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "asin_sales_prediction",
+      "label": "ASIN销量预测",
+      "group": "product",
+      "runtime_name": "asin_prediction",
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "bsr_sales_prediction",
+      "label": "BSR销量预测",
+      "group": "product",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "product_trend_keepa",
+      "label": "商品趋势详情(keepa)",
+      "group": "product",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "observed"
+    },
+    {
+      "alias": "traffic_keyword",
+      "label": "关键词反查(流量词列表)",
+      "group": "keyword",
+      "runtime_name": "traffic_keyword",
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "keyword_research",
+      "label": "关键词选品",
+      "group": "keyword",
+      "runtime_name": "keyword_research",
+      "default": true,
+      "page_size": 15,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "keyword_trend",
+      "label": "关键词选品-趋势数据",
+      "group": "keyword",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "keyword_mining",
+      "label": "关键词挖掘",
+      "group": "keyword",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "extend_traffic_keywords",
+      "label": "拓展流量词",
+      "group": "keyword",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "keyword_conversion_rate",
+      "label": "关键字转化率",
+      "group": "keyword",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "aba_weekly",
+      "label": "ABA数据选品-按周",
+      "group": "keyword",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "observed"
+    },
+    {
+      "alias": "aba_monthly",
+      "label": "ABA数据选品-按月",
+      "group": "keyword",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "observed"
+    },
+    {
+      "alias": "aba_keyword_trend",
+      "label": "ABA数据选品-关键词趋势",
+      "group": "keyword",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "observed"
+    },
+    {
+      "alias": "google_trends",
+      "label": "谷歌趋势",
+      "group": "keyword",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "observed"
+    },
+    {
+      "alias": "order_keyword_reverse",
+      "label": "出单词反查",
+      "group": "keyword",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "related_traffic_list",
+      "label": "关联流量列表",
+      "group": "keyword",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "traffic_keyword_stats",
+      "label": "流量词统计",
+      "group": "keyword",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "related_traffic_stats",
+      "label": "关联流量统计",
+      "group": "keyword",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "keyword_flow",
+      "label": "查流量来源(关键词流向)",
+      "group": "keyword",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "market_research",
+      "label": "选市场列表",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "market_stats",
+      "label": "选市场-统计",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "market_product_concentration",
+      "label": "选市场-商品集中度",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "derived"
+    },
+    {
+      "alias": "market_brand_concentration",
+      "label": "选市场-品牌集中度",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "derived"
+    },
+    {
+      "alias": "market_seller_location",
+      "label": "选市场-卖家所属地分布",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "derived"
+    },
+    {
+      "alias": "market_seller_concentration",
+      "label": "选市场-卖家集中度",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "derived"
+    },
+    {
+      "alias": "market_seller_type",
+      "label": "选市场-卖家类型分布",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "derived"
+    },
+    {
+      "alias": "market_demand_trend",
+      "label": "选市场-商品需求趋势",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "estimated"
+    },
+    {
+      "alias": "market_listing_age",
+      "label": "选市场-上架时间分布",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "derived"
+    },
+    {
+      "alias": "market_listing_trend",
+      "label": "选市场-上架趋势分布",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "derived"
+    },
+    {
+      "alias": "market_rating_count",
+      "label": "选市场-评分数分布",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "derived"
+    },
+    {
+      "alias": "market_rating_value",
+      "label": "选市场-评分值分布",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "derived"
+    },
+    {
+      "alias": "market_price",
+      "label": "选市场-价格分布",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "derived"
+    },
+    {
+      "alias": "market_aplus_video",
+      "label": "选市场-A+视频分布",
+      "group": "market",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "derived"
+    },
+    {
+      "alias": "reviews",
+      "label": "查评论",
+      "group": "review",
+      "runtime_name": "review",
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "observed"
+    },
+    {
+      "alias": "trademark_scope",
+      "label": "全球商标库-数据范围",
+      "group": "trademark",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "observed"
+    },
+    {
+      "alias": "trademark_detail",
+      "label": "全球商标库-详情",
+      "group": "trademark",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "observed"
+    },
+    {
+      "alias": "trademark_list",
+      "label": "全球商标库-列表",
+      "group": "trademark",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "observed"
+    },
+    {
+      "alias": "trademark_stats",
+      "label": "全球商标库-统计",
+      "group": "trademark",
+      "runtime_name": null,
+      "default": false,
+      "page_size": 100,
+      "max_rows": 2000,
+      "value_type": "derived"
+    }
+  ]
+}

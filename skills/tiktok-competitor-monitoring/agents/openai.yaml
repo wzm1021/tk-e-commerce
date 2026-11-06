@@ -1,0 +1,4 @@
+interface:
+  display_name: "竞店监控"
+  short_description: "定时比较竞店完整日趋势与商品榜单，保留证据并生成可追溯的变化事件"
+  default_prompt: "使用 $tiktok-competitor-monitoring 为这家竞店制定每日巡检规则并解释已核验的变化。"

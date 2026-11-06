@@ -1,0 +1,110 @@
+# Domain ingress, activated only after DNS, ICP filing and a trusted TLS certificate are ready.
+# Render __PUBLIC_DOMAIN__, __PUBLIC_IP__, __TLS_CERT_FILE__ and __TLS_KEY_FILE__.
+# Uses the existing tidelab-public-http.service and /etc/tidelab/public-http.nginx.conf.
+user www-data;
+worker_processes 1;
+pid /run/tidelab-public/nginx.pid;
+error_log /var/log/tidelab-public/error.log warn;
+events { worker_connections 1024; }
+http {
+    server_tokens off;
+    access_log off;
+    client_body_temp_path /var/lib/nginx/tidelab-body;
+    proxy_temp_path /var/lib/nginx/tidelab-proxy;
+    client_max_body_size 2m;
+    client_body_timeout 15s;
+    client_header_timeout 15s;
+    keepalive_timeout 30s;
+    send_timeout 60s;
+
+    server {
+        listen 0.0.0.0:80 default_server;
+        server_name _;
+        return 444;
+    }
+    server {
+        listen 0.0.0.0:80;
+        server_name __PUBLIC_DOMAIN__;
+        location ^~ /.well-known/acme-challenge/ {
+            root /var/lib/tidelab-acme;
+            default_type text/plain;
+            try_files $uri =404;
+        }
+        location ~ ^/internal(/|\.|$) { return 404; }
+        location / { return 308 https://__PUBLIC_DOMAIN__$request_uri; }
+    }
+
+    # Keep existing customer bookmarks and HTTP sessions working during migration.
+    server {
+        listen 0.0.0.0:4310;
+        server_name __PUBLIC_IP__;
+        location ~ ^/internal(/|\.|$) { return 404; }
+        location / {
+            proxy_pass http://127.0.0.1:9080;
+            proxy_http_version 1.1;
+            proxy_set_header Host $http_host;
+            proxy_set_header Connection "";
+            proxy_set_header X-Forwarded-For $remote_addr;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-Proto http;
+            proxy_set_header X-Tidelab-Public-Ingress 1;
+            proxy_connect_timeout 5s;
+            proxy_read_timeout 720s;
+            proxy_send_timeout 60s;
+            proxy_buffering off;
+            proxy_request_buffering on;
+
+            # 5 MiB files expand to about 6.7 MiB in JSON/base64.
+            # Inherit the same proxy headers/timeouts; other routes stay at 2 MiB.
+            location ~ ^/api/(ai-tests/[0-9a-fA-F-]+/image|feedback/files)$ {
+                client_max_body_size 8m;
+                proxy_pass http://127.0.0.1:9080;
+            }
+        }
+    }
+
+    server {
+        listen 0.0.0.0:443 ssl default_server;
+        server_name _;
+        ssl_reject_handshake on;
+    }
+    server {
+        listen 0.0.0.0:443 ssl;
+        server_name __PUBLIC_DOMAIN__;
+        ssl_certificate __TLS_CERT_FILE__;
+        ssl_certificate_key __TLS_KEY_FILE__;
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_session_cache shared:TidelabSSL:10m;
+        ssl_session_timeout 1d;
+        ssl_session_tickets off;
+        add_header Strict-Transport-Security "max-age=31536000" always;
+
+        # Public admin remains controlled by PUBLIC_ADMIN_ENABLED in the application.
+        location ~ ^/internal(/|\.|$) { return 404; }
+        location / {
+            proxy_pass http://127.0.0.1:9080;
+            proxy_http_version 1.1;
+            proxy_set_header Host $http_host;
+            proxy_set_header Connection "";
+            proxy_set_header X-Forwarded-For $remote_addr;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-Proto https;
+            proxy_set_header X-Tidelab-Public-Ingress 1;
+            # App COOKIE_SECURE=false supports the separate legacy HTTP origin.
+            # Enforce Secure on every cookie issued through this HTTPS listener.
+            # Preserve HttpOnly/session and readable CSRF cookie attributes.
+            proxy_cookie_flags ~ secure;
+            proxy_connect_timeout 5s;
+            proxy_read_timeout 720s;
+            proxy_send_timeout 60s;
+            proxy_buffering off;
+            proxy_request_buffering on;
+
+            # Keep upload limits identical on HTTPS and the legacy IP entry.
+            location ~ ^/api/(ai-tests/[0-9a-fA-F-]+/image|feedback/files)$ {
+                client_max_body_size 8m;
+                proxy_pass http://127.0.0.1:9080;
+            }
+        }
+    }
+}

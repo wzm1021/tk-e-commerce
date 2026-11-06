@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikTok Shop 广告与素材分析"
+  short_description: "基于 FastMoss 分析竞品投放估算、广告归因和素材表现，提出有证据的测试假设"
+  default_prompt: "使用 $tiktok-ad-intelligence 分析指定竞品的广告与素材，区分估算、归因和推断，给出素材测试优先级。"

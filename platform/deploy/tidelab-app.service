@@ -1,0 +1,29 @@
+[Unit]
+Description=Tidelab application and provider gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=tidelab
+Group=tidelab
+WorkingDirectory=/opt/tidelab/current/platform
+EnvironmentFile=/etc/tidelab/app.env
+ExecStart=/usr/local/bin/node src/server.mjs
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=120
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/srv/tidelab/data /srv/tidelab/logs
+MemoryHigh=420M
+MemoryMax=560M
+TasksMax=100
+LimitNOFILE=4096
+UMask=0077
+StandardOutput=append:/srv/tidelab/logs/app.log
+StandardError=append:/srv/tidelab/logs/app.log
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+ARG NODE_IMAGE=node:24-bookworm-slim
+FROM ${NODE_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates python3 git ripgrep && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY platform/package.json platform/package-lock.json ./
+RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+COPY platform/src ./src
+COPY skills/tiktok-competitor-monitoring /skills/tiktok-competitor-monitoring
+RUN mkdir /work && chown 10001:10001 /work
+USER 10001:10001
+WORKDIR /work
+ENTRYPOINT ["node","/app/src/agent/agent-runner.mjs"]

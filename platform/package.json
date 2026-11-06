@@ -1,0 +1,51 @@
+{
+  "name": "tanviko-platform",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "dev": "node --watch src/server.mjs",
+    "web": "vite",
+    "start": "node src/server.mjs",
+    "build": "vite build",
+    "test": "node --test --test-concurrency=1 test/*.test.mjs",
+    "migrate": "node scripts/migrate.mjs",
+    "worker": "node src/worker.mjs",
+    "worker:ai-testing": "node src/ai-testing-worker.mjs",
+    "bootstrap": "node scripts/bootstrap.mjs",
+    "report:rerender": "node scripts/rerender-report.mjs",
+    "check": "node scripts/check-structure.mjs",
+    "worker:feedback": "node src/feedback-worker.mjs"
+  },
+  "dependencies": {
+    "@fastify/cookie": "11.1.2",
+    "@fastify/helmet": "13.1.1",
+    "@fastify/rate-limit": "11.2.0",
+    "@fastify/static": "10.1.3",
+    "@openai/codex-sdk": "0.153.4",
+    "ajv": "8.20.0",
+    "decimal.js": "10.6.0",
+    "fastify": "5.12.3",
+    "htmlparser2": "12.0.0",
+    "ipaddr.js": "2.5.0",
+    "lucide-react": "1.41.0",
+    "nodemailer": "10.0.3",
+    "pg": "8.23.0",
+    "playwright": "1.64.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "redis": "6.2.1",
+    "sanitize-html": "2.17.7",
+    "sharp": "0.35.5",
+    "undici": "8.10.2",
+    "vite": "8.2.2",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "prettier": "3.9.6"
+  },
+  "license": "MIT"
+}

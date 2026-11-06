@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "identifiers_from_user_links_not_live_verified",
+  "recorded_at": "2026-09-05",
+  "solution_url": "https://open.1688.com/solution/solutionDetail.htm?solutionKey=1697015659372#apiAndMessageList",
+  "tools": [
+    {
+      "capability": "image_search",
+      "namespace": "com.alibaba.fenxiao.crossborder",
+      "name": "product.search.imageQueryBasic",
+      "version": "1",
+      "source": "user_provided_document_url",
+      "document_url": "https://open.1688.com/api/apidocdetail.htm?id=com.alibaba.fenxiao.crossborder%3Aproduct.search.imageQueryBasic-1&aopApiCategory=category_new",
+      "request_url": null,
+      "input_schema": null,
+      "output_schema": null,
+      "authentication": null,
+      "status": "awaiting_document_body_and_credentials"
+    },
+    {
+      "capability": "product_detail",
+      "namespace": "com.alibaba.product",
+      "name": "alibaba.cross.productInfo",
+      "version": "1",
+      "source": "user_provided_document_url",
+      "document_url": "https://open.1688.com/api/apidocdetail.htm?id=com.alibaba.product%3Aalibaba.cross.productInfo-1&aopApiCategory=category_new",
+      "request_url": null,
+      "input_schema": null,
+      "output_schema": null,
+      "authentication": null,
+      "status": "awaiting_document_body_and_credentials"
+    }
+  ]
+}

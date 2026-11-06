@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikTok Shop 经营异动诊断"
+  short_description: "基于 FastMoss 核实 GMV 与销量异动，拆分可对账的变化并给出原因排查顺序"
+  default_prompt: "使用 $tiktok-growth-diagnostics 排查指定店铺或商品的经营涨跌，给出贡献对账、未解释差额和优先验证步骤。"

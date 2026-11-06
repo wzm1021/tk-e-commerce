@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikTok Shop 评论洞察与改进"
+  short_description: "基于 FastMoss 买家评论提炼具体痛点，输出有证据的商品改进、页面与 FAQ 建议"
+  default_prompt: "使用 $tiktok-review-insights 分析指定商品的评论，输出样本说明、原文证据、改进优先级和 FAQ 草稿。"

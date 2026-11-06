@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "case_id": "fill-case-id",
+  "as_of": null,
+  "market": null,
+  "base_currency": null,
+  "currency_decimals": 2,
+  "supply": {
+    "item_id": null,
+    "tk_product_id": null,
+    "tk_sku_id": null,
+    "offer_id": null,
+    "sku_id": null,
+    "match_status": "unresolved",
+    "confirmation_source": null
+  },
+  "sales": {
+    "item_revenue": null,
+    "buyer_shipping_revenue": null,
+    "units_per_order": 1
+  },
+  "platform_fee": {
+    "rate": 0.06
+  },
+  "fx_rates": [],
+  "costs": [
+    {
+      "category": "procurement",
+      "status": "unknown",
+      "amount": null,
+      "currency": null,
+      "basis": "per_sale_unit",
+      "source": null
+    },
+    {
+      "category": "domestic_shipping",
+      "status": "unknown",
+      "amount": null,
+      "currency": null,
+      "basis": "per_order",
+      "source": null
+    },
+    {
+      "category": "packaging",
+      "status": "unknown",
+      "amount": null,
+      "currency": null,
+      "basis": "per_order",
+      "source": null
+    },
+    {
+      "category": "fulfillment",
+      "status": "unknown",
+      "amount": null,
+      "currency": null,
+      "basis": "per_order",
+      "source": null
+    },
+    {
+      "category": "duties_taxes",
+      "status": "unknown",
+      "amount": null,
+      "currency": null,
+      "basis": "per_order",
+      "source": null
+    },
+    {
+      "category": "creator_commission",
+      "status": "unknown",
+      "amount": null,
+      "currency": null,
+      "basis": "per_order",
+      "source": null
+    },
+    {
+      "category": "advertising",
+      "status": "unknown",
+      "amount": null,
+      "currency": null,
+      "basis": "per_order",
+      "source": null
+    },
+    {
+      "category": "returns_losses",
+      "status": "unknown",
+      "amount": null,
+      "currency": null,
+      "basis": "per_order",
+      "source": null
+    },
+    {
+      "category": "other",
+      "status": "unknown",
+      "amount": null,
+      "currency": null,
+      "basis": "per_order",
+      "source": null
+    }
+  ],
+  "shipping": {
+    "mode": "rate_card",
+    "parcel": {
+      "weight_kg": null,
+      "length_cm": null,
+      "width_cm": null,
+      "height_cm": null,
+      "units_per_parcel": 1,
+      "basis": "supplier",
+      "recorded_at": null,
+      "source": null
+    },
+    "rate_card": {
+      "name": null,
+      "currency": null,
+      "destination": null,
+      "valid_from": null,
+      "valid_until": null,
+      "source": null,
+      "weight_mode": "max_actual_volumetric",
+      "volumetric_divisor": null,
+      "billing_increment_kg": null,
+      "minimum_billable_kg": null,
+      "max_actual_kg": null,
+      "max_billable_kg": null,
+      "max_side_cm": null,
+      "package_eligibility_confirmed": false,
+      "pricing": {
+        "type": "per_kg",
+        "amount_per_kg": null
+      },
+      "surcharges": {
+        "fixed_per_parcel": null,
+        "fuel_rate": null,
+        "fuel_basis": "base_freight"
+      }
+    }
+  }
+}

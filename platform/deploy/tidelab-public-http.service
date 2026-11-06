@@ -1,0 +1,26 @@
+[Unit]
+Description=Tidelab public HTTP beta ingress
+After=network-online.target tidelab-app.service
+Wants=network-online.target tidelab-app.service
+
+[Service]
+Type=forking
+PIDFile=/run/tidelab-public/nginx.pid
+RuntimeDirectory=tidelab-public
+LogsDirectory=tidelab-public
+ExecStartPre=/usr/sbin/nginx -t -c /etc/tidelab/public-http.nginx.conf
+ExecStart=/usr/sbin/nginx -c /etc/tidelab/public-http.nginx.conf
+ExecReload=/usr/sbin/nginx -s reload -c /etc/tidelab/public-http.nginx.conf
+ExecStop=/usr/sbin/nginx -s quit -c /etc/tidelab/public-http.nginx.conf
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=30
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+NoNewPrivileges=true
+ReadWritePaths=/var/lib/nginx
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+
+[Install]
+WantedBy=multi-user.target

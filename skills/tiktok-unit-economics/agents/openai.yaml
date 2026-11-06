@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikTok 单件利润与运费测算"
+  short_description: "结合货源报价、人工包装测量和物流规则，按默认 6% 平台费测算贡献利润"
+  default_prompt: "使用 $tiktok-unit-economics 根据货源成本、包装重量尺寸和运费报价测算贡献利润，列出待补字段。"

@@ -1,0 +1,30 @@
+[Unit]
+Description=Tidelab AI product testing and page capture queue
+After=network-online.target tidelab-app.service
+Wants=network-online.target
+
+[Service]
+User=tidelab
+Group=tidelab
+WorkingDirectory=/opt/tidelab/current/platform
+EnvironmentFile=/etc/tidelab/app.env
+Environment=DB_POOL_SIZE=2
+ExecStart=/usr/local/bin/node src/ai-testing-worker.mjs
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=480
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/srv/tidelab/data /srv/tidelab/logs
+MemoryHigh=450M
+MemoryMax=640M
+TasksMax=192
+LimitNOFILE=4096
+UMask=0077
+StandardOutput=append:/srv/tidelab/logs/ai-testing.log
+StandardError=append:/srv/tidelab/logs/ai-testing.log
+
+[Install]
+WantedBy=multi-user.target

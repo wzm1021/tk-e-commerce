@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikTok Shop 选品"
+  short_description: "双数据源交叉验证的 TikTok Shop 选品与机会评估"
+  default_prompt: "Use $tiktok-product-scouting to find and rank TikTok Shop product opportunities for my target market."

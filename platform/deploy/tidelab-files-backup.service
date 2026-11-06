@@ -1,0 +1,19 @@
+[Unit]
+Description=Tidelab verified local artifact snapshot
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/bin/python3 /opt/tidelab/current/platform/deploy/backup-files.py
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateNetwork=true
+ReadWritePaths=/srv/tidelab/backups
+MemoryMax=192M
+CPUQuota=30%
+Nice=15
+IOSchedulingClass=idle
+TimeoutStartSec=30min

@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikTok 到 1688 货源匹配"
+  short_description: "从 TikTok 商品清单准备批量找货、SKU 比对和人工确认，保留真实数据来源"
+  default_prompt: "使用 $tiktok-supplier-matching 将 TK 商品链接整理为 1688 寻源任务，核实候选规格并生成待买样清单。"

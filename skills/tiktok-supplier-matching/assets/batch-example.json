@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "example_notice": "虚构演示；不调用真实 API，不代表找到真实货源",
+  "products": [
+    {
+      "item_id": "demo-item-1",
+      "tk_product_id": "demo-tk-1",
+      "region": "US",
+      "title": "虚构收纳盒单件示例",
+      "images": [
+        "https://example.invalid/demo-product.jpg"
+      ],
+      "target_spec_confirmed": false,
+      "attributes": {
+        "sale_unit": "1盒",
+        "material": "待确认"
+      },
+      "chinese_queries": [
+        "收纳盒"
+      ],
+      "evidence": [
+        "仅为虚构示例"
+      ]
+    },
+    "https://example.invalid/tk-unresolved-demo"
+  ],
+  "supplier_results": []
+}
